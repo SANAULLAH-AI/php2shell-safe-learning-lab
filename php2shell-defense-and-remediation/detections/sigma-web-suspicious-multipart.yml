@@ -1,0 +1,30 @@
+title: PHP2Shell-Related Suspicious Multipart Request Triage
+id: 3f3a01d2-9f68-4f67-a27a-php2shell2026
+status: experimental
+description: >
+  Heuristic starter for triaging multipart POST bursts near PHP worker errors.
+  Not a signature for the exploit and not proof of compromise.
+logsource:
+  category: webserver
+detection:
+  selection_method:
+    cs-method: POST
+  selection_multipart:
+    cs-content-type|contains: multipart/form-data
+  condition: selection_method and selection_multipart
+falsepositives:
+  - Legitimate file uploads
+  - API clients that send multipart form data
+level: informational
+tags:
+  - attack.initial-access
+  - attack.t1190
+fields:
+  - c-ip
+  - cs-method
+  - cs-uri-stem
+  - sc-status
+  - cs-content-type
+  - time
+references:
+  - https://www.cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619

@@ -1,0 +1,1 @@
+"""Defensive log triage utilities."""

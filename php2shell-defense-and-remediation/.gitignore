@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.log
+php2shell-evidence-*.txt
+.DS_Store

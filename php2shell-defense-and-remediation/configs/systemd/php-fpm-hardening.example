@@ -1,0 +1,13 @@
+# Illustrative systemd drop-in concepts, NOT a ready-to-apply universal config.
+# Check the actual service unit and application needs before adopting any option.
+# [Service]
+# NoNewPrivileges=true
+# PrivateTmp=true
+# ProtectSystem=full
+# ProtectHome=true
+# RestrictSUIDSGID=true
+# LockPersonality=true
+# MemoryMax=1G
+#
+# Hardening can break apps and does not replace the PHP security patch.
+# Apply with change control, test in staging, and validate service behavior.
